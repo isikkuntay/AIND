@@ -1,0 +1,22 @@
+The NN can infer relations from either of the fact, question, or info sentences at any iteration. It probably is a good idea to keep all the generated relations in the input to the relations LSTM. The NN has to learn that reproducing the same relation again is redundant. 
+T
+he labels need to be in noun and number representations (we omit the verb representation for now). Here is the conversion key (note that fact sentences are not converted as they are generic):
+
+"A team of 24 customer service representatives works at a customer service hotline which operates 24 hours a day. There are four shifts.  Normal shifts are  from 5 am to 11 am, 11 am to 5 pm and 5 pm to 11 pm. 
+Midnight shift is from 11pm to 5am. If only 3 customer representatives work during the midnight shift, how many representatives work on each of the other three shifts?"
+
+"A N1 of 24 N2 N3 N4 works at a N5 N6 N7 which operates 24 N8 a N9. There are 4 N10. Normal N11 are from from 5 am to 11 am, 11 am to 5 pm and 5 pm to 11 pm. N12 N13 is from 11pm to 5am. If only 3 N14 N15 work during the N16 N17, how many N18 work on each of the other three N19?"
+
+We will not convert the numbers. Instead, we will use vector representations of the numbers. The machine can figure out the relation between the numbers in the sentence. We will represent every word with a 10-digit vector. The first digits will indicate the type of word; for example: representative can be represented by the vector 9000000602,  where 9 is for noun. Another example: work = 6000000052, where 6 is for verb. Now, for numbers, there will be zeros in the beginning. For example, 3 will simply be 0000000003, and 24 = 0000000024. We will let the network figure out that these represent actual numbers. In fact, each digit can represent different aspect of the word in the sentence, thus capturing more info.
+
+The relations given in the fourt_grade_relations will be the only relations to be input during the first iteration. The labels are the target relations to be deduced. Once NN generates the outputs that hopefully look like the labels, they are to be added to the input of the relations LSTM. Labels can be generated one at a time to make the network's job easier. 
+
+The first label, N2 N3 N4 = VAR1, gets ammended into the relations input right away and fed into the LSTM. Compound words are assigned to new variables to make it concise. 
+Some operator characters need to be included in the token list: ";", "=", "LEN", "[]", "TIME", "IN", "AT", "SUB", "QUES", "EACH", "OTHER", "RMDER" "HMANY", "COMP", "DOES", "PLURAL", "NEXT", etc. 
+"DOES" "NOT" operator tells that this noun does something. If it is relevant to the question, the label should output something meaningful. If the verbs are represented with variables, this could be done. In our example, the verbs do not have much effect, so we do not use them and the label will just have "DOES" as a placeholder.
+
+To deduce the relation VAR5 AT VAR4, the network needs to understand the meaning of the words work during the midnight shift. That will not be easy, but can be achieved by training. 
+
+The fact sentences will be essential for assisting the NN solve the problem. How to obtain these facts is another story.
+
+We will keep the output vocabulary short so that the dense layer does not have too many softmax outputs.

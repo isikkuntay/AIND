@@ -1,0 +1,34 @@
+customer service representatives is a compound word
+customer service representatives is plural for customer service representative
+customer service hotline is a compound word
+customer service hotline is a place
+operates mean runs
+hours is time related
+day is time related
+shifts is plural for shift
+normal shifts is a compound word
+normal shifts is plural for normal shift
+normal shifts is plural for normal shift
+normal shifts is plural for normal shift
+normal shifts is plural for normal shift
+midnight shift is a compound word
+midnight shift is a compound word
+customer representatives is a compound word
+customer representatives is plural for customer representative
+midnight shift is compound word
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_RELATIONS
+FIND_QUESTION
+SOLVE_QUESTION
+SOLVE_QUESTION
+SOLVE_QUESTION
+SOLVE_QUESTION
+SOLVE_QUESTION
+SOLVE_QUESTION
+SOLVE_QUESTION

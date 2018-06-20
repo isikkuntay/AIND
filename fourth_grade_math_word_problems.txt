@@ -1,0 +1,18 @@
+There are 4 doctors working in a clinic. Each doctor has 2 nurses assisting them. There
+are two receptionists, Jay and Molly, working at the reception.
+1. How many people are working in the clinic?
+2. On Monday, 23 patients made appointments with each doctor. However, 6 of the
+patients did not show up. How many patients visited the clinic on Monday?
+3. On Tuesday, Jay answered 45 phone calls and Molly answered 12 more calls
+than Jay did. How many calls were answered in total?
+4. On Wednesday, a doctor called in sick. The two nurses and Jay called 36
+patients to reschedule their appointments. How many calls did they each make?
+5. Among the calls they made, 13 of the patients decided to cancel their
+appointments and the rest decided to postpone their appointments. How many
+appointments were postponed?
+6. Write an equation using “x” and then
+solve the equation.
+For each patient they see, each
+doctor can get paid $80. If there are
+x patients on that day, the doctor will
+be paid $1760.

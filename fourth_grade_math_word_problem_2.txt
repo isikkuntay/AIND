@@ -1,0 +1,12 @@
+A team of 24 customer service representatives works at a customer service hotline which operates 24 hours a day. There are four shifts.  Normal shifts are  from 5 am to 11 am, 11 am to 5 pm and 5 pm to 11 pm. Midnight shift is from 11pm to 5am.  
+ 
+On average, 630 calls are received everyday during the 3 normal shifts and 115 calls are received during the midnight shift. 
+ 
+1. If only 3 customer representatives work during the midnight shift, how many representatives work on each of the other three shifts?     
+ 
+ 
+2. On average, are there more calls received during one normal shift or one midnight shift? 
+ 
+ 
+ 
+3. On average, how many call are received by each representative during each hour of the normal shift?
