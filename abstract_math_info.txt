@@ -1,0 +1,79 @@
+there are 6 N1 and 2 N2 .
+there are 6 N2 and 2 N1 .
+in the N1 , there are 4 UNITS of N2 , 7 UNITS of N3 and 5 UNITS of N4 .
+there are 9 UNITS of N1 and 8 UNITS of N2 .
+at the N1 , there are 5 UNITS of N2 with N3 and 4 UNITS of N4 with N5 .
+next to the 3 N1 , there are 5 N2 . on the other side of the N3 , there are 7 N2 .
+there are 4 N1 in the N2 and 3 N1 on N3 .
+there are 8 N1 and 3 N2 from the N3 . the N4 has 5 N1 already .
+in one N1 , there are 6 N2 . in the other N1 , there are 9 N2 .
+in one N1 , there are 6 N2 . in the other N1 , there are 9 N2 .
+in one N1 , there are 6 N2 . in the other N1 , there are 9 N2 .
+there were 4 UNITS of N1 in the N2 . a N3 comes in to return 2 UNITS of N1 he bought last week .
+there were 4 UNITS of N1 in the N2 . a N3 comes in to buy 2 UNITS .
+N1 V1 8 N2 last week . yesterday , he called the N3 and changed the N4 to add 6 more N2 .
+N1 V1 8 N2 last week . yesterday , he called the N3 and changed the N4 to subtract 6 N2 .
+7 N1 in N2 went on the N3 and 3 N1 V1 and could not go on the N3 .
+in the N1 , there were 5 N2 and 5 N3 . on the other side of the N4 , there were 2 N3 for V1 .
+in the N1 , there were 5 N2 and 5 N3 . on the other side of the N4 , there were 2 N3 for V1 .
+in the N1 , there were 5 N2 and 5 N3 . on the other side of the N4 , there were 2 N3 for V1 .
+in the N1 , there were 5 N2 and 5 N3 . on the other side of the N4 , there were 2 N3 for V1 .
+N1 were V1 for N2 . as there were 2 N3 , the N1 V1 in 2 N4 . there were 7 N1 in one N5 and 6 N1 in another N5
+N1 were V1 for N2 . as there were 2 N3 , the N1 V1 in 2 N4 . there were 7 N1 in one N5 and 6 N1 in another N5
+N1 were V1 for N2 . as there were 2 N3 , the N1 V1 in 2 N4 . there were 7 N1 in one N5 and 6 N1 in another N5
+N1 were V1 for N2 . as there were 2 N3 , the N1 V1 in 2 N4 . there were 7 N1 in one N5 and 6 N1 in another N5
+there were 2 N1 in the N2 . each N3 V1 8 N4 .
+there were 2 N1 in the N2 . each N3 V1 8 N4 .
+the N1 V1 some N2 for the N3 . there were 3 UNITS of N4 and 4 UNITS of N5 .
+the N1 V1 some N2 for the N3 . there were 3 UNITS of N4 and 4 UNITS of N5 .
+the N1 V1 some N2 for the N3 . there were 3 UNITS of N4 and 4 UNITS of N5 .
+the N1 V1 with the N2 at the N3 , there are A1 3 UNITS of N4 and 9 UNITS of N5 .
+the N1 V1 with the N2 at the N3 , there are A1 3 UNITS of N4 and 9 UNITS of N5 .
+the N1 V1 with the N2 at the N3 , there are A1 3 UNITS of N4 and 9 UNITS of N5 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+in the first week , they V1 12 UNITS of N1 and 36 UNITS of N2 . in the second week , they V1 25 UNITS of N1 and 24 UNITS of N2 .
+during the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . during the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+in the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . in the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+in the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . in the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+during the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . during the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+during the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . during the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+during the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . during the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+in the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . in the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+in the first week , the N1 V2 12 UNITS of N2 and 36 UNITS of N3 . in the second week , they V2 25 UNITS of N2 and 24 UNITS of N3 .
+they had 40 UNITS of N1 in N2 and V1 47 more UNITS last month .
+they had 40 UNITS of N1 in N2 and V1 47 more UNITS last month .
+they had 40 UNITS of N1 in N2 and V1 47 more UNITS last month .
+in the N1 , there are 16 UNITS of N2 . there were 19 more UNITS of N3 than N2 .
+in the N1 , there are 16 UNITS of N2 . there were 19 more UNITS of N3 than N2 .
+in the N1 , there are 16 UNITS of N2 . there were 19 more UNITS of N3 than N2 .
+the N1 V2 to V3 60 N2 . 34 men and 45 women V4 .
+the N1 V2 to V3 60 N2 . 34 men and 45 women V4 .
+the N1 V2 to V3 60 N2 . 34 men and 45 women V4 .
+the N1 V2 to V3 60 N2 . 34 men and 45 women V4 .
+the N1 opened 18 days in N2 and 21 days in N3 . it will be opened for 15 days in N4 .
+the N1 opened 18 days in N2 and 21 days in N3 . it will be opened for 15 days in N4 .
+the N1 opened 18 days in N2 and 21 days in N3 . it will be opened for 15 days in N4 .
+the N1 opened 18 days in N2 and 21 days in N3 . it will be opened for 15 days in N4 .
+the N1 opened 18 days in N2 and 21 days in N3 . it will be opened for 15 days in N4 .
+there are 6 N1 in N2 , 11 N1 in the N3 and 80 N1 in the N4 .
+there are 6 N1 in N2 , 11 N1 in the N3 and 80 N1 in the N4 .
+there are 4 UNITS of N1 in each of N2 and N3 and there are 32 UNITS of N1 in N4 .
+there are 3 N1 for N2 and each N1 has a capacity of 25 UNITS of N2 . the first 2 N1 are full and the last 1 V1 8 UNITS of N2 .
+there are 3 N1 for N2 and each N1 has a capacity of 25 UNITS of N2 . the first 2 N1 are full and the last 1 V1 8 UNITS of N2 .
+there are 3 N1 for N2 and each N1 has a capacity of 25 UNITS of N2 . the first 2 N1 are full and the last 1 V1 8 UNITS of N2 .
+there are 3 N1 for N2 and each N1 has a capacity of 25 UNITS of N2 . the first 2 N1 are full and the last 1 V1 8 UNITS of N2 .
+there are 3 N1 for N2 and each N1 has a capacity of 25 UNITS of N2 . the first 2 N1 are full and the last 1 V1 8 UNITS of N2 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
