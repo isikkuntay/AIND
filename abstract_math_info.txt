@@ -77,3 +77,4 @@ the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
 the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
 the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
 the N1 V1 50 UNITS of N2 , 14 UNITS of N3 and 7 UNITS of N4 .
+there are 6 N1 . each N1 has 3 N2 .

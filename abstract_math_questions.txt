@@ -11,7 +11,7 @@ how many N2 are in first N1 ?
 how many N2 are in second N1 ?
 how many N1 are there ?
 how many N1 are there ?
-how many N1 will there be when N4 comes?
+how many N1 will there be when N4 comes ?
 how many N2 are in N4 ?
 how many N1 went on the N3 ?
 how many N3 are in N1 ?
@@ -64,7 +64,7 @@ how many days was N1 open in N2 an N3 ?
 how many days will N1 have been open ?
 how many N1 are on the N5 ?
 how many N1 are in the N5 ?
-how many UNITS of N1 are there on the N5?
+how many UNITS of N1 are there on the N5 ?
 how many N1 are there ?
 how many N2 are there in the first two N1 ?
 how many N2 are there in the last N1 ?
@@ -77,3 +77,4 @@ how many UNITS of N3 were V1 ?
 how many UNITS of N3 were V1 ?
 how many UNITS of N4 were V1 ?
 how many UNITS of N4 were V1 ?
+how many N2 are there ?

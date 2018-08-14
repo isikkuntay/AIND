@@ -77,3 +77,4 @@ IN2
 IN2
 IN3
 IN3
+IN1 * IN2
