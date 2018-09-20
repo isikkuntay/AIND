@@ -1,0 +1,43 @@
+Mary IN bedroom
+Sandra IN bedroom
+WHERE-IS Mary
+football WAS-IN bedroom REPEAT
+football WITH Mary
+John IN bedroom
+Mary IN office REPEAT
+football IN office
+John IN office
+WHERE-IS John
+milk WAS-IN office REPEAT
+milk WITH John
+Daniel IN kitchen
+John IN bedroom REPEAT
+milk IN bedroom
+Daniel IN hallway
+WHERE-IS Daniel
+apple WAS-IN hallway REPEAT 
+apple WITH Daniel
+WHERE-IS John
+milk IN bedroom REPEAT
+milk NOT-WITH John
+John IN kitchen
+Sandra IN bathroom
+Daniel IN bathroom REPEAT
+apple IN bathroom
+John IN bathroom
+QUESTION: WHERE-WAS Mary
+ANSWER: office
+Mary IN kitchen REPEAT
+football IN kitchen
+Sandra IN garden
+Sandra IN office
+Daniel IN garden REPEAT
+apple IN garden
+Sandra IN hallway
+Daniel IN office REPEAT
+apple IN office
+WHERE IS Mary
+football IN kitchen REPEAT
+football NOT-WITH Mary
+John IN bedroom
+John IN office

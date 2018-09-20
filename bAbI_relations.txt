@@ -1,0 +1,43 @@
+NONE
+NONE
+NONE
+Mary IN bedroom
+football WAS-IN bedroom REPEAT
+NONE
+football WITH Mary
+football WITH Mary REPEAT
+NONE
+NONE
+John IN office
+milk WAS-IN office REPEAT
+NONE
+milk WITH John
+milk WITH John REPEAT
+NONE
+NONE
+Daniel IN hallway
+apple WAS-IN hallway REPEAT
+NONE
+John IN bedroom
+milk IN bedroom REPEAT
+NONE
+NONE
+apple WITH Daniel
+apple WITH Daniel REPEAT
+None
+football WITH Mary
+football WITH Mary ANSWER: Mary WAS-IN office
+football WITH Mary
+football WITH Mary REPEAT
+NONE
+NONE
+apple WITH Daniel
+apple WITH Daniel REPEAT
+NONE
+apple WITH Daniel
+apple WITH Daniel REPEAT
+NONE
+Mary IN kitchen
+football IN kitchen REPEAT
+NONE
+NONE
