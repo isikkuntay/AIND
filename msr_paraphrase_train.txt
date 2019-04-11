@@ -29,10 +29,6 @@ Quality	#1 ID	#2 ID	#1 String	#2 String
 1	1239046	1239031	Inhibited children tend to be timid with new people , objects , and situations , while uninhibited children spontaneously approach them .	Simply put , shy invividuals tend to be more timid with new people and situations .
 1	2907515	2907224	I wanted to bring the most beautiful people into the most beautiful building , he said Sunday inside the Grand Central concourse .	" I wanted to bring the most beautiful people into the most beautiful building , " Tunick said Sunday .
 0	2791650	2791604	The broad Standard & Poor 's 500 < .SPX > fell 10.75 points , or 1.02 percent , to 1,039.32 .	The S & P 500 index was up 1.26 , or 0.1 percent , to 1,039.32 after sinking 10.75 yesterday .
-0	2559762	2559517	Duque will return to Earth Oct. 27 with the station 's current crew , U.S. astronaut Ed Lu and Russian cosmonaut Yuri Malenchenko .	Currently living onboard the space station are American astronaut Ed Lu and Russian cosmonaut Yuri Malenchenko .
-0	1783137	1782659	No dates have been set for the civil or the criminal trial .	No dates have been set for the criminal or civil cases , but Shanley has pleaded not guilty .
-1	14663	14617	The largest gains were seen in prices , new orders , inventories and exports .	Sub-indexes measuring prices , new orders , inventories and exports increased .
-1	1692902	1692851	Trading in Loral was halted yesterday ; the shares closed on Monday at $ 3.01 .	The New York Stock Exchange suspended trading yesterday in Loral , which closed at $ 3.01 Friday .
 0	1480561	1480670	Earnings per share from recurring operations will be 13 cents to 14 cents .	That beat the company 's April earnings forecast of 8 to 9 cents a share .
 1	3089434	3089441	He plans to have dinner with troops at Kosovo 's U.S. military headquarters , Camp Bondsteel .	After that , he plans to have dinner at Camp Bondsteel with U.S. troops stationed there .
 1	2538111	2538021	Retailers J.C. Penney Co . Inc . ( JCP ) and Walgreen Co . ( WAG ) kick things off on Monday .	Retailers J.C. Penney Co . Inc . JCP.N and Walgreen Co . WAG.N kick things off on Monday .
