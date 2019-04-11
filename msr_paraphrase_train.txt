@@ -31,10 +31,6 @@ Quality	#1 ID	#2 ID	#1 String	#2 String
 0	2791650	2791604	The broad Standard & Poor 's 500 < .SPX > fell 10.75 points , or 1.02 percent , to 1,039.32 .	The S & P 500 index was up 1.26 , or 0.1 percent , to 1,039.32 after sinking 10.75 yesterday .
 0	1480561	1480670	Earnings per share from recurring operations will be 13 cents to 14 cents .	That beat the company 's April earnings forecast of 8 to 9 cents a share .
 1	3089434	3089441	He plans to have dinner with troops at Kosovo 's U.S. military headquarters , Camp Bondsteel .	After that , he plans to have dinner at Camp Bondsteel with U.S. troops stationed there .
-1	2538111	2538021	Retailers J.C. Penney Co . Inc . ( JCP ) and Walgreen Co . ( WAG ) kick things off on Monday .	Retailers J.C. Penney Co . Inc . JCP.N and Walgreen Co . WAG.N kick things off on Monday .
-1	1341941	1341915	Prosecutors filed a motion informing Lee they intend to seek the death penalty .	He added that prosecutors will seek the death penalty .
-1	374967	375017	Last year the court upheld Cleveland 's school voucher program , ruling 5-4 that vouchers are constitutional if they provide parents a choice of religious and secular schools .	Last year , the court ruled 5-4 in an Ohio case that government vouchers are constitutional if they provide parents with choices among a range of religious and secular schools .
-0	2321401	2321455	He beat testicular cancer that had spread to his lungs and brain .	Armstrong , 31 , battled testicular cancer that spread to his brain .
 1	1356545	1356676	Sorkin , who faces charges of conspiracy to obstruct justice and lying to a grand jury , was to have been tried separately .	Sorkin was to have been tried separately on charges of conspiracy and lying to a grand jury .
 0	2198036	2198094	Graves reported from Albuquerque , Villafranca from Austin and Ratcliffe from Laredo .	Pete Slover reported from Laredo and Gromer Jeffers from Albuquerque .
 1	921159	921272	The US chip market is expected to decline 2.1 percent this year , then grow 15.7 percent in 2004 .	The Americas market will decline 2.1 percent to $ 30.6 billion in 2003 , and then grow 15.7 percent to $ 35.4 billion in 2004 .
