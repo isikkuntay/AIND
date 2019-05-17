@@ -58,7 +58,7 @@ flags.DEFINE_integer("max_seq_length", 64, "Sequence length after WordPiece toke
 
 flags.DEFINE_bool("convert_data", False, "Convert to feminine to match pseudo label training.")
 
-flags.DEFINE_bool("pre_train", True, "Run pre-training to create TFRecords.")
+flags.DEFINE_bool("pre_train", False, "Run pre-training to create TFRecords.")
 
 flags.DEFINE_bool("do_train", False, "Whether to run training.")
 
@@ -161,7 +161,7 @@ class JIGprocessor(DataProcessor):
 
   def get_dev_examples(self, data_dir):
     return self._create_examples(
-        self._read_tsv(os.path.join(data_dir, "dev.tsv")), "dev")
+        self._read_tsv(os.path.join(data_dir, "train.tsv")), "dev")
 
   def get_test_examples(self, data_dir):
     return self._create_examples(
@@ -545,16 +545,13 @@ def main(_):
       predict_batch_size=FLAGS.predict_batch_size)
 
   if FLAGS.pre_train:
-    tsv_dir = os.path.join(FLAGS.data_dir, "trainQ")
     tf.gfile.MakeDirs(record_dir)
-    files = tf.gfile.ListDirectory(tsv_dir)
-    for in_file in files:
-      in_path = os.path.join(tsv_dir, in_file)
-      train_examples = processor.get_train_examples(in_path)
-      train_file = in_file + '.tf_record'
-      train_path = os.path.join(record_dir, train_file)
-      file_based_convert_examples_to_features(
-          train_examples, label_list, FLAGS.max_seq_length, tokenizer, train_path)
+    train_tsv = os.path.join(tsv_dir, "train.tsv")
+    train_examples = processor.get_train_examples(train_tsv)
+    train_file = train_file + '.tf_record'
+    train_path = os.path.join(record_dir, train_file)
+    file_based_convert_examples_to_features(
+      train_examples, label_list, FLAGS.max_seq_length, tokenizer, train_path)
 
   if FLAGS.do_train:
     tf.logging.info("  Batch size = %d", FLAGS.train_batch_size)
