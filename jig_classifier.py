@@ -14,7 +14,7 @@
 # limitations under the License.
 
 # This is a modification of run_classifier.py for BERT from Ken Krige.
-# The modification was done by M8riz May 2019 to parse JIG data for
+# The modification was done by M8riks May 2019 to parse JIG data for
 # kaggle competition https://www.kaggle.com/c/jigsaw-unintended-bias-in-toxicity-classification
 
 from __future__ import absolute_import
@@ -25,6 +25,7 @@ import numpy as np
 import collections
 import csv
 import re
+import pandas as pd
 import os
 import BERT.modeling as modeling
 import BERT.optimization as optimization
@@ -38,27 +39,27 @@ FLAGS = flags.FLAGS
 flags.DEFINE_string("data_dir", 'gs://davidphooter/data',
     "The input data dir. Should contain the .tsv files (or other data files) ")
 
-flags.DEFINE_string("bert_config_file", 'gs://davidphooter/BERT/uncased_L-12_H-768_A-12/bert_config.json',
+flags.DEFINE_string("bert_config_file", 'gs://davidphooter/BERT/bert_config.json',
     "The config json file corresponding to the pre-trained BERT model.")
 
 flags.DEFINE_string("task_name", "JIG", "The name of the task to train.")
 
-flags.DEFINE_string("vocab_file", 'gs://davidphooter/BERT/uncased_L-12_H-768_A-12/vocab.txt',
+flags.DEFINE_string("vocab_file", 'gs://davidphooter/BERT/vocab.txt',
     "The vocabulary file that the BERT model was trained on.")
 
-flags.DEFINE_string("output_dir", "gs://davidphooter/out",
+flags.DEFINE_string("output_dir", "gs://davidphooter/out/",
     "The output directory where the model checkpoints will be written.")
 
-flags.DEFINE_string("init_checkpoint", 'gs://davidphooter/BERT/uncased_L-12_H-768_A-12/bert_model.ckpt',
+flags.DEFINE_string("init_checkpoint", 'gs://davidphooter/BERT/bert_model.ckpt',
     "Initial checkpoint (usually from a pre-trained BERT model).")
 
-flags.DEFINE_bool("do_lower_case", True, "True for uncased BERT models")
+flags.DEFINE_bool("do_lower_case", False, "True for uncased BERT models")
 
 flags.DEFINE_integer("max_seq_length", 64, "Sequence length after WordPiece tokenization.")
 
 flags.DEFINE_bool("convert_data", False, "Convert to feminine to match pseudo label training.")
 
-flags.DEFINE_bool("pre_train", True, "Run pre-training to create TFRecords.")
+flags.DEFINE_bool("pre_train", False, "Run pre-training to create TFRecords.")
 
 flags.DEFINE_bool("do_train", False, "Whether to run training.")
 
@@ -104,7 +105,6 @@ class InputExample(object):
   def __init__(self, guid, text_a, char_offsets, label=None):
     self.guid = guid
     self.text_a = text_a
-    self.aux_data = aux_data
     self.label = label
 
 
@@ -117,12 +117,10 @@ class PaddingInputExample(object):
 class InputFeatures(object):
 
   def __init__(self, input_ids, input_mask,
-               aux_data,
                segment_ids, label_id,
                is_real_example=True):
     self.input_ids = input_ids
     self.input_mask = input_mask
-    self.aux_data = aux_data
     self.segment_ids = segment_ids
     self.label_id = label_id
     self.is_real_example = is_real_example
@@ -157,35 +155,27 @@ class JIGprocessor(DataProcessor):
   def get_train_examples(self, path):
     tf.logging.info(path)
     return self._create_examples(
-        self._read_tsv(path), "train")
+        os.path.join(data_dir, "train.tsv"), "train")
 
   def get_dev_examples(self, data_dir):
     return self._create_examples(
-        self._read_tsv(os.path.join(data_dir, "dev.tsv")), "dev")
+        os.path.join(data_dir, "dev.tsv"), "dev")
 
   def get_test_examples(self, data_dir):
     return self._create_examples(
-        self._read_tsv(os.path.join(data_dir, "test.tsv")), "test")
+        os.path.join(data_dir, "test.tsv"), "test")
 
   def get_labels(self):
     return ["1"] #sigmoid label
 
-  def _create_examples(self, lines, set_type):
+  def _create_examples(self, path, set_type):
     examples = []
-    for (i, line) in enumerate(lines):
-      if i == 0:
-        continue
-      guid = tokenization.convert_to_unicode(line[0]) 
-      text_a = tokenization.convert_to_unicode(line[2])
-      aux_data = []
-      for j in range(3,33):
-        if line[j] == "NaN":
-          aux_data.append(tokenization.convert_to_unicode(-1))
-        else:
-          aux_data.append(tokenization.convert_to_unicode(line[j]))
-      label = tokenization.convert_to_unicode(line[1]) 
-      examples.append(
-          InputExample(guid=guid, text_a=text_a, aux_data=aux_data, label=label))
+    rows = pd.read_csv(path)
+    guid = tokenization.convert_to_unicode(rows['id']) 
+    text_a = tokenization.convert_to_unicode('comment_text')
+    label = tokenization.convert_to_unicode('target') 
+    examples.append(
+        InputExample(guid=guid, text_a=text_a, label=label))
     return examples
 
 def convert_single_example(ex_index, example, label_list, max_seq_length,
@@ -196,10 +186,9 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
         input_ids=[0] * max_sea_length,
         input_mask=[0] * max_seq_length,
         segment_ids=[0] * max_seq_length,
-        aux_ids = [0] * 30,
-	label_id=0,
+      	label_id=0,
         is_real_example=False)
-  # We should have input 30 as a flag variable but I am lazy
+  
   text_a = example.text_a  
 
   token_text_a = tokenizer.tokenize(text_a)
@@ -233,7 +222,6 @@ def convert_single_example(ex_index, example, label_list, max_seq_length,
   feature = InputFeatures(
       input_ids=input_ids,
       input_mask=input_mask,
-      aux_data=example.aux_data,
       segment_ids=segment_ids,
       label_id=label_id,
       is_real_example=True)
@@ -254,7 +242,6 @@ def file_based_convert_examples_to_features(examples, label_list, max_seq_length
     features = collections.OrderedDict()
     features["input_ids"] = create_int_feature(feature.input_ids)
     features["input_mask"] = create_int_feature(feature.input_mask)
-    features["aux_data"] = create_int_feature(feature.aux_data)
     features["segment_ids"] = create_int_feature(feature.segment_ids)
     features["label_ids"] = create_int_feature([feature.label_id])
     features["is_real_example"] = create_int_feature(
@@ -269,15 +256,13 @@ def file_based_input_fn_builder(input_file, seq_length, is_training,
                                 drop_remainder):
 
   name_to_features = {
-      "input_ids": tf.FixedLenFeature([sea_length], tf.int64),
+      "input_ids": tf.FixedLenFeature([seq_length], tf.int64),
       "input_mask": tf.FixedLenFeature([seq_length], tf.int64),
-      "aux_data": tf.FixedLenFeature([30], tf.int64),
       "segment_ids": tf.FixedLenFeature([seq_length], tf.int64),
       "label_ids": tf.FixedLenFeature([], tf.int64),
       "is_real_example": tf.FixedLenFeature([], tf.int64),
   }
-  #again using 30 directly in above, although would be better to input in flags
-
+  
   def _decode_record(record, name_to_features):
     example = tf.parse_single_example(record, name_to_features)
 
@@ -298,8 +283,8 @@ def file_based_input_fn_builder(input_file, seq_length, is_training,
     # For eval, we want no shuffling and parallel reading doesn't matter.
     d = None
     if is_training:
-      gap_file = os.path.join(input_file, "*.tsv.tf_record")
-      gap = tf.data.Dataset.list_files(gap_file)\
+      jig_file = os.path.join(input_file, "*.tsv.tf_record")
+      jig = tf.data.Dataset.list_files(jig_file)\
         .flat_map(tf.data.TFRecordDataset)\
         .take(64)
       if len(tf.gfile.ListDirectory(input_file)) > 3:
@@ -310,7 +295,7 @@ def file_based_input_fn_builder(input_file, seq_length, is_training,
           .take(128)
         d = gap.concatenate(pseudo).shuffle(buffer_size=128)
       else:
-        d = tf.data.Dataset.list_files(gap_file)\
+        d = tf.data.Dataset.list_files(jig_file)\
           .flat_map(tf.data.TFRecordDataset)
       d = d.repeat()
     else:
@@ -328,8 +313,7 @@ def file_based_input_fn_builder(input_file, seq_length, is_training,
 
 
 def create_model(bert_config, is_training, input_ids,
-                input_mask, aux_data,
-                segment_ids, labels, num_labels, use_one_hot_embeddings):
+                input_mask, segment_ids, labels, num_labels, use_one_hot_embeddings):
   """Creates a classification model."""
   model = modeling.BertModel(
       config=bert_config,
@@ -341,47 +325,26 @@ def create_model(bert_config, is_training, input_ids,
  
   all_out = model.get_pooled_output()
 
-  hidden_size = output_layer.shape[-1].value
+  hidden_size = all_out.shape[-1].value
 
   output_weights = tf.get_variable(
-      "output_weights", [256, hidden_size],
+      "output_weights", num_labels, hidden_size],
       initializer=tf.truncated_normal_initializer(stddev=0.02))
 
   output_bias = tf.get_variable(
-      "output_bias", [256], initializer=tf.zeros_initializer())
-
-  aux_weights = tf.get_variable(
-      "aux_weights", [16, 30],
-      initializer=tf.truncated_normal_initializer(stddev=0.02))
-
-  aux_bias = tf.get_variable(
-      "aux_bias", [16], initializer=tf.zeros_initializer())
+      "output_bias", num_labels, initializer=tf.zeros_initializer())
 
   if is_training:
      # I'm not sure if dropout on weights, rather than data
      # is accepted practice, but it seemed to work
-     output_weights = tf.nn.dropout(output_weights, keep_prob=0.9)
-     aux_weights = tf.nn.dropout(aux_weights, keep_prob=0.9)
-
-  bert_out = tf.matmul(all_out, output_weights, transpose_b=True)
-  aux_out = tf.matmul(aux_data, aux_weights, transpose_b=True)
-  
-  total_weights = tf.get_variable(
-      "total_weights", [num_labels, 256+16],
-      initializer=tf.truncated_normal_initializer(stddev=0.02))
-
-  total_bias = tf.get_variable(
-      "total_bias", [num_labels], initializer=tf.zeros_initializer())
-
+     
+     
   with tf.variable_scope("loss"):
-    bert_out = tf.nn.bias_add(bert_out, output_bias)
-    aux_out = tf.nn.bias_add(aux_out, aux_bias)
-    logits = tf.concat([bert_out, aux_out], axis=1)
-    logits = tf.matmul(logits, total_weights, transpose_b=True)
-    logits = tf.nn.bias_add(logits, total_bias)
+    bert_out = tf.matmul(all_out, output_weights, transpose_b=True)
+    logits = tf.nn.bias_add(bert_out, output_bias)
     probabilities = tf.nn.sigmoid(logits, axis=-1)
-    loss = tf.nn.sigmoid_cross_entropy_with_logits(logits, axis=-1)
-    return (loss, per_example_loss, logits, probabilities)
+    dloss = tf.nn.sigmoid_cross_entropy_with_logits(logits, axis=-1)
+    return (dloss, dloss, logits, probabilities)
 
 
 def model_fn_builder(bert_config, num_labels, init_checkpoint, learning_rate,
@@ -391,7 +354,6 @@ def model_fn_builder(bert_config, num_labels, init_checkpoint, learning_rate,
   def model_fn(features, labels, mode, params):
     input_ids = features["input_ids"]
     input_mask = features["input_mask"]
-    aux_data = features["aux_data"]
     segment_ids = features["segment_ids"]
     label_ids = features["label_ids"]
     is_real_example = None
@@ -403,7 +365,7 @@ def model_fn_builder(bert_config, num_labels, init_checkpoint, learning_rate,
     is_training = (mode == tf.estimator.ModeKeys.TRAIN)
 
     (total_loss, per_example_loss, logits, probabilities) = create_model(
-        bert_config, is_training, input_ids, input_mask, aux_data,
+        bert_config, is_training, input_ids, input_mask,
         segment_ids, label_ids, num_labels, use_one_hot_embeddings)
 
     tvars = tf.trainable_variables()
@@ -545,14 +507,11 @@ def main(_):
       predict_batch_size=FLAGS.predict_batch_size)
 
   if FLAGS.pre_train:
-    tsv_dir = os.path.join(FLAGS.data_dir, "trainQ")
+    tsv_dir = FLAGS.data_dir
     tf.gfile.MakeDirs(record_dir)
-    files = tf.gfile.ListDirectory(tsv_dir)
-    for in_file in files:
-      in_path = os.path.join(tsv_dir, in_file)
-      train_examples = processor.get_train_examples(in_path)
-      train_file = in_file + '.tf_record'
-      train_path = os.path.join(record_dir, train_file)
+    train_examples = processor.get_train_examples(tsv_dir)
+    train_file = 'train.tsv' + '.tf_record'
+    train_path = os.path.join(record_dir, train_file)
       file_based_convert_examples_to_features(
           train_examples, label_list, FLAGS.max_seq_length, tokenizer, train_path)
 
@@ -648,7 +607,7 @@ def main(_):
     for example in predict_examples:
       guids.append(example.guid)
 
-    output_predict_file = os.path.join(FLAGS.output_dir, "m8riz_results.csv")
+    output_predict_file = os.path.join(FLAGS.output_dir, "kepler_results.csv")
     with tf.gfile.GFile(output_predict_file, "w") as writer:
         tf.logging.info("***** Predict results *****")
         writer.write("id,predictions\n")
@@ -659,5 +618,5 @@ def main(_):
             writer.write(output_line)
 
 if __name__ == "__main__":
-  #flags.mark_flag_as_required("output_dir")
+  flags.mark_flag_as_required("output_dir")
   tf.app.run()
