@@ -170,11 +170,13 @@ class JIGprocessor(DataProcessor):
 
   def _create_examples(self, path, set_type):
     examples = []
-    rows = pd.read_csv(path)
-    guid = tokenization.convert_to_unicode(rows['id']) 
-    text_a = tokenization.convert_to_unicode('comment_text')
-    label = tokenization.convert_to_unicode('target') 
-    examples.append(
+    with open(path, "r") as file:
+      lines = csv.reader(file)
+      for line in lines:
+        guid = tokenization.convert_to_unicode(line[0]) 
+        text_a = tokenization.convert_to_unicode(line[2])
+        label = tokenization.convert_to_unicode(line[1]) 
+        examples.append(
         InputExample(guid=guid, text_a=text_a, label=label))
     return examples
 
@@ -337,7 +339,7 @@ def create_model(bert_config, is_training, input_ids,
   if is_training:
      # I'm not sure if dropout on weights, rather than data
      # is accepted practice, but it seemed to work
-     
+     all_out = tf.nn.dropout(all_out, keep_prob=0.9)
      
   with tf.variable_scope("loss"):
     bert_out = tf.matmul(all_out, output_weights, transpose_b=True)
