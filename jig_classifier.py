@@ -330,7 +330,7 @@ def create_model(bert_config, is_training, input_ids,
   hidden_size = all_out.shape[-1].value
 
   output_weights = tf.get_variable(
-      "output_weights", num_labels, hidden_size],
+      "output_weights", num_labels, hidden_size,
       initializer=tf.truncated_normal_initializer(stddev=0.02))
 
   output_bias = tf.get_variable(
