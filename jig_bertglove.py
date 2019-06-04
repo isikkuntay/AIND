@@ -11,8 +11,8 @@ import shutil
 import logging
 
 from shutil import copytree
-sys.path.insert(0, "/bert-master/")
-copytree('/keras_bert','/kaggle/working')
+sys.path.insert(0, "bertglove/bert-master/")
+copytree('bertglove/keras_bert','/kaggle/working')
 BERT_PRETRAINED_DIR = '/bert_uncased'
 print('***** BERT pretrained directory: {} *****'.format(BERT_PRETRAINED_DIR))
 import tokenization  
@@ -79,7 +79,7 @@ def load_embeddings(path):
     with open(path) as f:
         return dict(get_coefs(*line.strip().split(' ')) for line in f)
 
-path = 'glove300d.zip'
+path = 'bertglove/glove300d.zip'
 
 with zipfile.ZipFile(path, 'r') as zip_ref:
     zip_ref.extractall()
@@ -145,10 +145,10 @@ def pad_tokenized_lines(tokenized_lines, maxlen):
     return np.asarray(glove_input)
 
 #load train data
-train_df = pd.read_csv('train.csv')
+train_df = pd.read_csv('bertglove/train.csv')
 train_df = train_df.sample(frac=0.16,random_state = 42)
 #load test data
-test_df = pd.read_csv('test.csv')
+test_df = pd.read_csv('bertglove/test.csv')
 #text lines
 train_lines = train_df['comment_text'].values
 print(train_lines.shape)
@@ -199,7 +199,7 @@ test_glove_lines = tokenize_test_lines(test_glove_lines, word_to_token)
 test_glove_input = pad_tokenized_lines(test_glove_lines, maxlen)
 
 hehe = model3.predict([test_input, seg_input, mask_input, test_glove_input],verbose=1,batch_size=BATCH_SIZE)
-submission = pd.read_csv('test.csv', index_col='id')
+submission = pd.read_csv('bertglove/test.csv', index_col='id')
 submission['prediction'] = hehe[0].flatten()
 submission.reset_index(drop=False, inplace=True)
 submission.to_csv('submission.csv', index=False)
