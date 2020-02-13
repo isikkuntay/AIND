@@ -31,6 +31,7 @@ import modeling
 import optimization
 import tokenization
 import tensorflow as tf
+from zipfile import ZipFile
 
 flags = tf.flags
 
@@ -237,7 +238,11 @@ class KeplerProcessor(DataProcessor):
     
     examples = []
     train_df = []
-    train_df = pd.read_json(path, orient = 'records', lines = True)
+    
+    with ZipFile('sampleDir.zip', 'r') as zipObj:
+        zipObj.extractall()
+    
+    train_df = pd.read_json("simplified-nq-train.jsonl", orient = 'records', lines = True)
     print('Our dataset have {} rows and {} columns'.format(df.shape[0], df.shape[1]))
     gc.collect()
     
